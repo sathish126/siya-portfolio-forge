@@ -66,14 +66,14 @@ const ProjectCard = ({ project, index }) => {
 };
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="py-24 bg-gradient-to-b from-portfolio-dark to-portfolio-dark/90">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-gradient">
-          Featured Projects
-        </h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-gradient">Projects</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
