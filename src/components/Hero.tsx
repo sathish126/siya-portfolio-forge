@@ -1,9 +1,10 @@
 
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Text, Float, PerspectiveCamera, OrbitControls, Sphere } from '@react-three/drei';
+import { Text, Float, PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import { Button } from '@/components/ui/button';
 import { DownloadIcon } from 'lucide-react';
+import * as THREE from 'three';
 
 const ParticleField = () => {
   const particlesRef = useRef<THREE.Group>(null);
@@ -25,8 +26,8 @@ const ParticleField = () => {
           <mesh key={i} position={[x, y, z]}>
             <sphereGeometry args={[size, 8, 8]} />
             <meshStandardMaterial 
-              color="#9b87f5"
-              emissive="#6E59A5"
+              color={new THREE.Color("#9b87f5")}
+              emissive={new THREE.Color("#6E59A5")}
               emissiveIntensity={0.5}
             />
           </mesh>

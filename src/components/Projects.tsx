@@ -1,69 +1,34 @@
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { cn } from '@/lib/utils';
+import React from 'react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
-const projects = [
+const projectsData = [
   {
-    title: 'Transporter of Bikes',
-    description: 'Designed and implemented a specialized transporter solution to reduce worker fatigue in the bike transportation process.',
-    image: '/images/project1.jpg',
-    tags: ['Design', 'Ergonomics', 'Worker Safety'],
+    title: "Transporter of Bikes",
+    description: "Designed and implemented a bike transport system to reduce worker fatigue and optimize the transportation process in manufacturing facilities.",
+    technologies: ["Mechanical Design", "Ergonomics", "Manufacturing"],
+    image: "/placeholder.svg"
   },
   {
-    title: 'Mini Forklift',
-    description: 'Developed a compact forklift system to reduce human activity and improve efficiency in storage system automation.',
-    image: '/images/project2.jpg',
-    tags: ['Automation', 'Storage', 'Efficiency'],
+    title: "Mini Forklift",
+    description: "Developed a compact forklift solution to reduce human intervention in storage systems, improving automation and efficiency in warehouse operations.",
+    technologies: ["Automation", "Mechanical Engineering", "Control Systems"],
+    image: "/placeholder.svg"
   },
   {
-    title: 'Beetroot Harvesting Machine',
-    description: 'Designed and fabricated a specialized machine for efficient beetroot harvesting, improving agricultural productivity.',
-    image: '/images/project3.jpg',
-    tags: ['Agricultural', 'Design', 'Fabrication'],
+    title: "Beetroot Harvesting Machine",
+    description: "Designed and fabricated a specialized machine for harvesting beetroot, increasing efficiency and reducing manual labor in agricultural processes.",
+    technologies: ["Agricultural Engineering", "Mechanical Design", "Fabrication"],
+    image: "/placeholder.svg"
   },
   {
-    title: 'Development of Aluminium/Polypropylene/Aluminium Sandwich Sheet',
-    description: 'Researched, developed, and tested a composite sandwich sheet for car hood applications, focusing on material properties and performance.',
-    image: '/images/project4.jpg',
-    tags: ['Materials', 'Testing', 'Automotive'],
-  },
+    title: "Aluminium/Polypropylene/Aluminium Sandwich Sheet",
+    description: "Developed and tested sandwich composite materials for car hood applications, focusing on weight reduction while maintaining structural integrity.",
+    technologies: ["Material Science", "Automotive Engineering", "Testing"],
+    image: "/placeholder.svg"
+  }
 ];
-
-const ProjectCard = ({ project, index }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-    >
-      <Card className="glass-morphism border-portfolio-primary/20 overflow-hidden h-full">
-        <div className="h-48 bg-gray-900 relative overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-portfolio-primary/30 to-portfolio-secondary/30">
-            <span className="text-5xl opacity-50">{index + 1}</span>
-          </div>
-        </div>
-        <CardHeader>
-          <CardTitle className="text-portfolio-secondary">{project.title}</CardTitle>
-          <CardDescription className="text-white/70">{project.description}</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-2 mt-4">
-            {project.tags.map((tag, tagIndex) => (
-              <span 
-                key={tagIndex}
-                className="bg-portfolio-primary/20 border border-portfolio-primary/30 text-white/80 text-xs px-2 py-1 rounded-full"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-    </motion.div>
-  );
-};
 
 const Projects = () => {
   return (
@@ -73,17 +38,35 @@ const Projects = () => {
           Featured Projects
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {projectsData.map((project, index) => (
+            <Card key={index} className="glass-morphism border-white/10 overflow-hidden transition-all duration-300 hover:border-portfolio-secondary/50">
+              <div className="h-48 bg-portfolio-primary/20 relative overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-full object-cover object-center opacity-70"
+                />
+              </div>
+              
+              <CardHeader>
+                <CardTitle className="text-portfolio-accent">{project.title}</CardTitle>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {project.technologies.map((tech, i) => (
+                    <Badge key={i} variant="outline" className="border-portfolio-primary/40 text-white/80">
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+              </CardHeader>
+              
+              <CardContent>
+                <CardDescription className="text-white/70">
+                  {project.description}
+                </CardDescription>
+              </CardContent>
+            </Card>
           ))}
-        </div>
-        
-        <div className="mt-12 text-center">
-          <p className="text-white/70 mb-6">
-            These projects demonstrate my ability to solve real-world engineering challenges through 
-            innovative design and practical implementation.
-          </p>
         </div>
       </div>
     </section>

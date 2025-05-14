@@ -2,9 +2,10 @@
 import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { MeshDistortMaterial } from '@react-three/drei';
+import * as THREE from 'three';
 
 const ThreeScene = () => {
-  const sphereRef = useRef();
+  const sphereRef = useRef<THREE.Mesh>(null);
   
   useFrame(({ clock }) => {
     if (sphereRef.current) {

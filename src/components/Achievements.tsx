@@ -1,8 +1,9 @@
 
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Text3D, OrbitControls, RoundedBox } from '@react-three/drei';
+import { OrbitControls, RoundedBox, Text3D } from '@react-three/drei';
 import { Badge } from "@/components/ui/badge";
+import * as THREE from 'three';
 
 const achievements = [
   {
@@ -33,7 +34,7 @@ const achievements = [
 ];
 
 const Trophy = () => {
-  const meshRef = useRef();
+  const meshRef = useRef<THREE.Mesh>(null);
   
   useFrame(({ clock }) => {
     if (meshRef.current) {
@@ -45,7 +46,7 @@ const Trophy = () => {
     <mesh ref={meshRef} position={[0, 0, 0]}>
       <RoundedBox args={[1.5, 2, 0.3]} radius={0.2} smoothness={4}>
         <meshStandardMaterial 
-          color="#D6BCFA" 
+          color={new THREE.Color("#D6BCFA")}
           metalness={0.8}
           roughness={0.2}
         />
@@ -58,7 +59,7 @@ const Trophy = () => {
       >
         #1
         <meshStandardMaterial 
-          color="#9b87f5" 
+          color={new THREE.Color("#9b87f5")}
           metalness={0.8}
           roughness={0.2}
         />

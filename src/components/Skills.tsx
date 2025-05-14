@@ -2,6 +2,7 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text, Float, OrbitControls } from '@react-three/drei';
+import * as THREE from 'three';
 
 const skills = [
   { name: 'Creo', category: 'software' },
@@ -35,7 +36,7 @@ const Skill = ({ name, position, color }) => {
 };
 
 const SkillsCloud = () => {
-  const groupRef = useRef();
+  const groupRef = useRef<THREE.Group>(null);
   
   useFrame(({ clock }) => {
     if (groupRef.current) {

@@ -13,13 +13,13 @@ const Footer = () => {
           
           <div className="flex flex-col items-center md:items-end">
             <div className="flex gap-4 mb-4">
-              <a href="#" className="text-white/60 hover:text-portfolio-secondary transition-colors">
+              <a href="https://www.linkedin.com/in/siyas-mahmood-1224a6226" className="text-white/60 hover:text-portfolio-secondary transition-colors">
                 LinkedIn
               </a>
               <a href="#" className="text-white/60 hover:text-portfolio-secondary transition-colors">
                 GitHub
               </a>
-              <a href="#" className="text-white/60 hover:text-portfolio-secondary transition-colors">
+              <a href="mailto:siyasmahmood5@gmail.com" className="text-white/60 hover:text-portfolio-secondary transition-colors">
                 Email
               </a>
             </div>

@@ -2,12 +2,13 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, RoundedBox } from '@react-three/drei';
+import * as THREE from 'three';
 
 const RotatingCube = () => {
   return (
     <RoundedBox args={[3, 3, 3]} radius={0.2} smoothness={4}>
       <meshStandardMaterial 
-        color="#6E59A5" 
+        color={new THREE.Color("#6E59A5")}
         metalness={0.5}
         roughness={0.2}
       />
