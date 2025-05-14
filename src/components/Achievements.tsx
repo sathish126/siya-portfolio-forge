@@ -1,22 +1,18 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Award, Trophy, Star, Users, UserCheck, UserCog, Plane, Zap } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, RoundedBox, Text3D } from '@react-three/drei';
+import { Badge } from "@/components/ui/badge";
+import * as THREE from 'three';
 
-<<<<<<< HEAD
 interface Achievement {
   title: string;
   description?: string;
   date: string;
   icon: React.ComponentType<{ className?: string }>;
 }
-=======
-import React, { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, RoundedBox, Text3D } from '@react-three/drei';
-import { Badge } from "@/components/ui/badge";
-import * as THREE from 'three';
->>>>>>> 170ae911ad6e807146f5604aba5c1d17cdf1c465
 
 interface ExtracurricularActivity {
   title: string;
@@ -57,7 +53,6 @@ const achievements: Achievement[] = [
   }
 ];
 
-<<<<<<< HEAD
 const extracurricularActivities: ExtracurricularActivity[] = [
   {
     title: 'Secretary, Industry (Alumni) Interaction Forum',
@@ -85,7 +80,7 @@ const extracurricularActivities: ExtracurricularActivity[] = [
     icon: Zap
   }
 ];
-=======
+
 const Trophy = () => {
   const meshRef = useRef<THREE.Mesh>(null);
   
@@ -120,7 +115,6 @@ const Trophy = () => {
     </mesh>
   );
 };
->>>>>>> 170ae911ad6e807146f5604aba5c1d17cdf1c465
 
 const Achievements = () => {
   return (
