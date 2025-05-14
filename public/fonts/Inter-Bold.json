@@ -1,0 +1,27 @@
+
+{
+  "glyphs": {},
+  "chars": {},
+  "familyName": "Inter",
+  "ascender": 800,
+  "descender": -200,
+  "underlinePosition": -100,
+  "underlineThickness": 50,
+  "boundingBox": {
+    "xMin": 0,
+    "xMax": 800,
+    "yMin": -200,
+    "yMax": 800
+  },
+  "resolution": 1000,
+  "original_font_information": {
+    "format": 0,
+    "copyright": "Copyright 2020 The Inter Project Authors",
+    "fontFamily": "Inter",
+    "fontSubfamily": "Bold",
+    "uniqueID": "3.19;RSMS;Inter-Bold",
+    "fullName": "Inter Bold",
+    "version": "3.19",
+    "postScriptName": "Inter-Bold"
+  }
+}
