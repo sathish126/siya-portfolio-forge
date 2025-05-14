@@ -3,12 +3,20 @@ import { motion } from 'framer-motion';
 import { Award, Trophy, Star, Users, UserCheck, UserCog, Plane, Zap } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 
+<<<<<<< HEAD
 interface Achievement {
   title: string;
   description?: string;
   date: string;
   icon: React.ComponentType<{ className?: string }>;
 }
+=======
+import React, { useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, RoundedBox, Text3D } from '@react-three/drei';
+import { Badge } from "@/components/ui/badge";
+import * as THREE from 'three';
+>>>>>>> 170ae911ad6e807146f5604aba5c1d17cdf1c465
 
 interface ExtracurricularActivity {
   title: string;
@@ -49,6 +57,7 @@ const achievements: Achievement[] = [
   }
 ];
 
+<<<<<<< HEAD
 const extracurricularActivities: ExtracurricularActivity[] = [
   {
     title: 'Secretary, Industry (Alumni) Interaction Forum',
@@ -76,6 +85,42 @@ const extracurricularActivities: ExtracurricularActivity[] = [
     icon: Zap
   }
 ];
+=======
+const Trophy = () => {
+  const meshRef = useRef<THREE.Mesh>(null);
+  
+  useFrame(({ clock }) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y = clock.getElapsedTime() * 0.3;
+    }
+  });
+  
+  return (
+    <mesh ref={meshRef} position={[0, 0, 0]}>
+      <RoundedBox args={[1.5, 2, 0.3]} radius={0.2} smoothness={4}>
+        <meshStandardMaterial 
+          color={new THREE.Color("#D6BCFA")}
+          metalness={0.8}
+          roughness={0.2}
+        />
+      </RoundedBox>
+      <Text3D
+        position={[-0.5, 0, 0.2]}
+        size={0.4}
+        height={0.1}
+        font="/fonts/Inter-Bold.json"
+      >
+        #1
+        <meshStandardMaterial 
+          color={new THREE.Color("#9b87f5")}
+          metalness={0.8}
+          roughness={0.2}
+        />
+      </Text3D>
+    </mesh>
+  );
+};
+>>>>>>> 170ae911ad6e807146f5604aba5c1d17cdf1c465
 
 const Achievements = () => {
   return (

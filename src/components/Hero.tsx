@@ -1,7 +1,70 @@
+<<<<<<< HEAD
 import React from 'react';
+=======
+
+import React, { useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Text, Float, PerspectiveCamera, OrbitControls } from '@react-three/drei';
+>>>>>>> 170ae911ad6e807146f5604aba5c1d17cdf1c465
 import { Button } from '@/components/ui/button';
 import { DownloadIcon } from 'lucide-react';
+import * as THREE from 'three';
 
+<<<<<<< HEAD
+=======
+const ParticleField = () => {
+  const particlesRef = useRef<THREE.Group>(null);
+  
+  useFrame(({ clock }) => {
+    if (particlesRef.current) {
+      particlesRef.current.rotation.y = clock.getElapsedTime() * 0.05;
+    }
+  });
+
+  return (
+    <group ref={particlesRef}>
+      {[...Array(100)].map((_, i) => {
+        const x = (Math.random() - 0.5) * 20;
+        const y = (Math.random() - 0.5) * 20;
+        const z = (Math.random() - 0.5) * 20;
+        const size = Math.random() * 0.05 + 0.02;
+        return (
+          <mesh key={i} position={[x, y, z]}>
+            <sphereGeometry args={[size, 8, 8]} />
+            <meshStandardMaterial 
+              color={new THREE.Color("#9b87f5")}
+              emissive={new THREE.Color("#6E59A5")}
+              emissiveIntensity={0.5}
+            />
+          </mesh>
+        );
+      })}
+    </group>
+  );
+};
+
+const FloatingText = () => {
+  return (
+    <Float
+      speed={2}
+      rotationIntensity={0.2}
+      floatIntensity={1}
+    >
+      <Text
+        font="/fonts/Inter-Bold.woff"
+        fontSize={1.2}
+        letterSpacing={0.05}
+        color="white"
+        anchorX="center"
+        anchorY="middle"
+      >
+        Production Engineer
+      </Text>
+    </Float>
+  );
+};
+
+>>>>>>> 170ae911ad6e807146f5604aba5c1d17cdf1c465
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen relative flex flex-col items-center justify-center">

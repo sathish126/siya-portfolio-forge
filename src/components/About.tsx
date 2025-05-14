@@ -1,7 +1,25 @@
 import React from 'react';
+<<<<<<< HEAD
 import { DownloadIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProfileImage from '../../assets/siyas.png';
+=======
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, RoundedBox } from '@react-three/drei';
+import * as THREE from 'three';
+
+const RotatingCube = () => {
+  return (
+    <RoundedBox args={[3, 3, 3]} radius={0.2} smoothness={4}>
+      <meshStandardMaterial 
+        color={new THREE.Color("#6E59A5")}
+        metalness={0.5}
+        roughness={0.2}
+      />
+    </RoundedBox>
+  );
+};
+>>>>>>> 170ae911ad6e807146f5604aba5c1d17cdf1c465
 
 const About = () => {
   return (

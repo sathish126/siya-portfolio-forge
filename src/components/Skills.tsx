@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 import React from 'react';
+=======
+
+import React, { useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Text, Float, OrbitControls } from '@react-three/drei';
+import * as THREE from 'three';
+>>>>>>> 170ae911ad6e807146f5604aba5c1d17cdf1c465
 
 const skills = [
   { name: 'Creo', category: 'software' },
@@ -14,6 +22,62 @@ const skills = [
   { name: 'Supply Chain Management', category: 'area' },
 ];
 
+<<<<<<< HEAD
+=======
+const Skill = ({ name, position, color }) => {
+  return (
+    <Float speed={1.5} rotationIntensity={0.2} floatIntensity={2}>
+      <Text
+        position={position}
+        color={color}
+        fontSize={0.4}
+        font="/fonts/Inter-Medium.woff"
+        anchorX="center"
+        anchorY="middle"
+      >
+        {name}
+      </Text>
+    </Float>
+  );
+};
+
+const SkillsCloud = () => {
+  const groupRef = useRef<THREE.Group>(null);
+  
+  useFrame(({ clock }) => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y = clock.getElapsedTime() * 0.05;
+    }
+  });
+  
+  return (
+    <group ref={groupRef}>
+      {skills.map((skill, i) => {
+        // Position skills in a spherical pattern
+        const phi = Math.acos(-1 + (2 * i) / skills.length);
+        const theta = Math.sqrt(skills.length * Math.PI) * phi;
+        const radius = 5;
+        
+        const x = radius * Math.sin(phi) * Math.cos(theta);
+        const y = radius * Math.sin(phi) * Math.sin(theta);
+        const z = radius * Math.cos(phi);
+        
+        const color = skill.category === 'software' ? '#9b87f5' : '#D6BCFA';
+        
+        return (
+          <Skill
+            key={i}
+            name={skill.name}
+            position={[x, y, z]}
+            color={color}
+          />
+        );
+      })}
+    </group>
+  );
+};
+
+>>>>>>> 170ae911ad6e807146f5604aba5c1d17cdf1c465
 const Skills = () => {
   return (
     <section id="skills" className="py-24 bg-gradient-to-b from-portfolio-dark to-portfolio-dark/90">
